@@ -11,7 +11,7 @@ abstract class Capo {
   disponibile: string;
   saldo: number;
   constructor(
-     _id: number,
+    _id: number,
     _codprod: number,
     _collezione: string,
     _capo: string,
@@ -95,6 +95,7 @@ const capo1 = new Articoli(
 );
 console.log(capo1);
 capo1.getacquistocapo();
+let id: number = 0;
 
 const URLA: any = "https://655f4653879575426b44fba9.mockapi.io/api/articoli";
 fetch(URLA)
@@ -102,6 +103,10 @@ fetch(URLA)
   .then((data) => {
     console.log(data);
     data.forEach((element: any) => {
+      if (element.id > id) {
+        id = element.id;
+      }
+      id++;
       element = new Articoli(
         element.id,
         element.codprod,
@@ -115,6 +120,7 @@ fetch(URLA)
         element.disponibile,
         element.saldo
       );
+      console.log(element);
       element.getacquistocapo();
     });
   });
@@ -151,23 +157,32 @@ function addProdotto() {
   const disponibile = disponibileI.value;
   const saldo = Number(saldoI.value);
 
-  let id: number = 0
-  
-
-  const newProduct = new Articoli(id, codprod, collezione, capo, modello, quantita, colore, prezzoivaesclusa, prezzoivainclusa, disponibile, saldo)
+  const newProduct = new Articoli(
+    Number(id),
+    codprod,
+    collezione,
+    capo,
+    modello,
+    quantita,
+    colore,
+    prezzoivaesclusa,
+    prezzoivainclusa,
+    disponibile,
+    saldo
+  );
 
   fetch(URLA, {
     method: "POST",
     body: JSON.stringify(newProduct),
     headers: {
       "Content-Type": "application/json",
-    }
+    },
   });
 }
 
 function cancel() {
   fetch(URLA + "/6", {
-    method: "DELETE"
-  })
+    method: "DELETE",
+  });
 }
 /* cancel() */

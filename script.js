@@ -47,13 +47,19 @@ var Articoli = /** @class */ (function (_super) {
 var capo1 = new Articoli(1, 2121, "primavera", "cardigan", 1231, 5, "nero", 18.5, 22.57, "negozio", 45);
 console.log(capo1);
 capo1.getacquistocapo();
+var id = 0;
 var URLA = "https://655f4653879575426b44fba9.mockapi.io/api/articoli";
 fetch(URLA)
     .then(function (resp) { return resp.json(); })
     .then(function (data) {
     console.log(data);
     data.forEach(function (element) {
+        if (element.id > id) {
+            id = element.id;
+        }
+        id++;
         element = new Articoli(element.id, element.codprod, element.collezione, element.capo, element.modello, element.quantita, element.colore, element.prezzoivaesclusa, element.prezzoivainclusa, element.disponibile, element.saldo);
+        console.log(element);
         element.getacquistocapo();
     });
 });
@@ -80,19 +86,18 @@ function addProdotto() {
     var prezzoivainclusa = Number(prezzoivainclusaI.value);
     var disponibile = disponibileI.value;
     var saldo = Number(saldoI.value);
-    var id = 0;
-    var newProduct = new Articoli(id, codprod, collezione, capo, modello, quantita, colore, prezzoivaesclusa, prezzoivainclusa, disponibile, saldo);
+    var newProduct = new Articoli(Number(id), codprod, collezione, capo, modello, quantita, colore, prezzoivaesclusa, prezzoivainclusa, disponibile, saldo);
     fetch(URLA, {
         method: "POST",
         body: JSON.stringify(newProduct),
         headers: {
             "Content-Type": "application/json",
-        }
+        },
     });
 }
 function cancel() {
     fetch(URLA + "/6", {
-        method: "DELETE"
+        method: "DELETE",
     });
 }
 /* cancel() */

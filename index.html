@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+        <h1>Aggiungere prodotto</h1>
+        <div class="border border-dark" style="border-radius: 20px;">
+           <div class="m-2 d-flex justify-content-around">
+                <div>
+                    <label for="codprod" class="d-block">Codice prodotto</label>
+                    <input id="codprod" type="number"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+
+                <div>
+                    <label for="collezione" class="d-block">Collezione prodotto</label>
+                    <input id="collezione" type="text" class="rounded border border-dark" style="width: 250px;">
+                </div>
+            </div>
+            <div class="m-2 d-flex justify-content-around">
+                <div>
+                    <label for="capo" class="d-block">Capo</label>
+                    <input id="capo" type="text"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+
+               <div>
+                    <label for="modello" class="d-block">Modello prodotto</label>
+                    <input id="modello" type="number"  class="rounded border border-dark" style="width: 250px;">
+               </div>
+           </div>
+           <div class="m-2 d-flex justify-content-around">
+                <div>
+                    <label for="quantita" class="d-block">Quantità</label>
+                    <input id="quantita" type="number" class="rounded border border-dark" style="width: 250px;">
+                </div>
+
+                <div>
+                    <label for="colore" class="d-block">Colore prodotto</label>
+                    <input id="colore" type="text"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+            </div>
+            <div class="m-2 d-flex justify-content-around">
+                <div>
+                    <label for="prezzoivaesclusa" class="d-block">Prezzo senza IVA</label>
+                    <input id="prezzoivaesclusa" type="number"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+
+                <div>
+                    <label for="prezzoivainclusa" class="d-block">Prezzo con IVA</label>
+                    <input id="prezzoivainclusa" type="number"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+            </div>
+           <div class="m-2 d-flex justify-content-around">
+                <div>
+                    <label for="disponibile" class="d-block">Disponibilità</label>
+                    <input id="disponibile" type="text"  class="rounded border border-dark" style="width: 250px;">
+                </div>
+
+               <div>
+                    <label for="saldo" class="d-block">Saldo</label>
+                    <input id="saldo" type="number"  class="rounded border border-dark" style="width: 250px;">
+               </div>
+           </div>
+            
+        </div>
+        <button class="btn btn-outline-dark m-2">SALVA</button>
+    </div>
+
+
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
